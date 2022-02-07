@@ -9,7 +9,7 @@ function App() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch("https://metamint-env.eba-hivekhu8.us-east-2.elasticbeanstalk.com/all")
+    fetch("https://thenexus.earth/all")
       .then((response) => response.json())
       .then((data) => {
         const dataWithKey = data.map((item, index) => ({
@@ -29,7 +29,7 @@ function App() {
 
   const whitelistUser = (objectId) => {
     fetch(
-      `https://metamint-env.eba-hivekhu8.us-east-2.elasticbeanstalk.com/whitelist/${objectId}`,
+      `https://thenexus.earth/whitelist/${objectId}`,
       {
         method: "POST",
       }
@@ -45,7 +45,7 @@ function App() {
 
   const blacklistUser = (objectId) => {
     fetch(
-      `https://metamint-env.eba-hivekhu8.us-east-2.elasticbeanstalk.com/blacklist/${objectId}`,
+      `https://thenexus.earth/blacklist/${objectId}`,
       {
         method: "POST",
       }
