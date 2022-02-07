@@ -2,14 +2,14 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Table, Tag, Space } from "antd";
 import { useEffect, useState } from "react";
-//Rebuild
+
 function App() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch("http://metamint-env.eba-hivekhu8.us-east-2.elasticbeanstalk.com/all")
+    fetch("https://metamint-env.eba-hivekhu8.us-east-2.elasticbeanstalk.com/all")
       .then((response) => response.json())
       .then((data) => {
         const dataWithKey = data.map((item, index) => ({
@@ -29,7 +29,7 @@ function App() {
 
   const whitelistUser = (objectId) => {
     fetch(
-      `http://metamint-env.eba-hivekhu8.us-east-2.elasticbeanstalk.com/whitelist/${objectId}`,
+      `https://metamint-env.eba-hivekhu8.us-east-2.elasticbeanstalk.com/whitelist/${objectId}`,
       {
         method: "POST",
       }
@@ -45,7 +45,7 @@ function App() {
 
   const blacklistUser = (objectId) => {
     fetch(
-      `http://metamint-env.eba-hivekhu8.us-east-2.elasticbeanstalk.com/blacklist/${objectId}`,
+      `https://metamint-env.eba-hivekhu8.us-east-2.elasticbeanstalk.com/blacklist/${objectId}`,
       {
         method: "POST",
       }
