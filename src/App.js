@@ -9,7 +9,7 @@ function App() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch("https://thenexus.earth/all")
+    fetch("https://api.thenexus.earth/all")
       .then((response) => response.json())
       .then((data) => {
         const dataWithKey = data.map((item, index) => ({
@@ -28,12 +28,9 @@ function App() {
   }, []);
 
   const whitelistUser = (objectId) => {
-    fetch(
-      `https://thenexus.earth/whitelist/${objectId}`,
-      {
-        method: "POST",
-      }
-    )
+    fetch(`https://api.thenexus.earth/whitelist/${objectId}`, {
+      method: "POST",
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -44,12 +41,9 @@ function App() {
   };
 
   const blacklistUser = (objectId) => {
-    fetch(
-      `https://thenexus.earth/blacklist/${objectId}`,
-      {
-        method: "POST",
-      }
-    )
+    fetch(`https://api.thenexus.earth/blacklist/${objectId}`, {
+      method: "POST",
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
